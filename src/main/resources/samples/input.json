@@ -1,0 +1,11 @@
+{
+  "user": {
+    "id": 101,
+    "fullName": "Amit Sharma",
+    "contact": {
+      "email": "amit@gmail.com",
+      "phone": "9999999999"
+    }
+  },
+  "createdAt": "2025-01-01"
+}

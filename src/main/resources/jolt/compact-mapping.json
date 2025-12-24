@@ -1,0 +1,13 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "user": {
+        "id": "id",
+        "contact": {
+          "email": "email"
+        }
+      }
+    }
+  }
+]

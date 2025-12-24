@@ -1,0 +1,29 @@
+{
+  "event": {
+    "id": "EVT-789456",
+    "timestamp": "2025-08-15T10:45:30Z"
+  },
+  "customerId": "CUST-101",
+  "customerName": "Amit Sharma",
+  "email": "amit@gmail.com",
+  "isVip": true,
+  "orderSummary": {
+    "orderCount": 2,
+    "totalAmount": 1700,
+    "currency": "INR"
+  },
+  "orders": [
+    {
+      "id": "ORD-1",
+      "itemCount": 3,
+      "orderValue": 900
+    },
+    {
+      "id": "ORD-2",
+      "itemCount": 1,
+      "orderValue": 800
+    }
+  ],
+  "sourceSystem": "MOBILE_APP",
+  "priority": "HIGH"
+}

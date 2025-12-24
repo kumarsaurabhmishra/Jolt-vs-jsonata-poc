@@ -1,0 +1,6 @@
+{
+  "customerId": user.id,
+  "name": user.fullName,
+  "email": user.contact.email,
+  "signupDate": createdAt
+}

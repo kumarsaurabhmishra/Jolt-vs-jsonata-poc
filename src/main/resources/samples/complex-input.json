@@ -1,0 +1,61 @@
+{
+  "eventId": "EVT-789456",
+  "eventTime": "2025-08-15T10:45:30Z",
+  "customer": {
+    "id": "CUST-101",
+    "name": {
+      "first": "Amit",
+      "last": "Sharma"
+    },
+    "contacts": [
+      {
+        "type": "email",
+        "value": "amit@gmail.com"
+      },
+      {
+        "type": "phone",
+        "value": "9999999999"
+      }
+    ],
+    "address": {
+      "city": "Delhi",
+      "country": "India"
+    },
+    "vip": true
+  },
+  "orders": [
+    {
+      "orderId": "ORD-1",
+      "amount": 900,
+      "currency": "INR",
+      "items": [
+        {
+          "sku": "SKU-1",
+          "qty": 2,
+          "price": 300
+        },
+        {
+          "sku": "SKU-2",
+          "qty": 1,
+          "price": 600
+        }
+      ]
+    },
+    {
+      "orderId": "ORD-2",
+      "amount": 800,
+      "currency": "INR",
+      "items": [
+        {
+          "sku": "SKU-3",
+          "qty": 1,
+          "price": 800
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "MOBILE_APP",
+    "retryCount": 2
+  }
+}

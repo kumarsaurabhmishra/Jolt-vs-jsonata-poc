@@ -1,0 +1,22 @@
+{
+  "event": {
+    "id": eventId,
+    "timestamp": eventTime
+  },
+  "customerId": customer.id,
+  "customerName": customer.name.first & " " & customer.name.last,
+  "email": customer.contacts[type = "email"].value[0],
+  "isVip": customer.vip,
+  "orderSummary": {
+    "orderCount": $count(orders),
+    "totalAmount": $sum(orders.amount),
+    "currency": orders[0].currency
+  },
+  "orders": orders.{
+    "id": orderId,
+    "itemCount": $sum(items.qty),
+    "orderValue": amount
+  },
+  "sourceSystem": metadata.source,
+  "priority": customer.vip ? "HIGH" : "NORMAL"
+}

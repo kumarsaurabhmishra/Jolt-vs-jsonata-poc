@@ -1,0 +1,87 @@
+[
+  {
+    "operation": "modify-default-beta",
+    "spec": {
+      "customer": {
+        "vip": false
+      }
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "eventId": "event.id",
+      "eventTime": "event.timestamp",
+      "customer": {
+        "id": "customerId",
+        "vip": "isVip",
+        "name": {
+          "first": "tmp.firstName",
+          "last": "tmp.lastName"
+        },
+        "contacts": {
+          "*": {
+            "type": {
+              "email": {
+                "@(2,value)": "email"
+              }
+            }
+          }
+        },
+        "@(0,vip)": {
+          "true": {
+            "#HIGH": "priority"
+          },
+          "*": {
+            "#NORMAL": "priority"
+          }
+        }
+      },
+      "orders": {
+        "*": {
+          "orderId": "orders[&1].id",
+          "amount": [
+            "orders[&1].orderValue",
+            "tempTotalAmount[]"
+          ],
+          "items": {
+            "*": {
+              "qty": "orders[&3].itemQty[]"
+            }
+          }
+        }
+      },
+      "metadata": {
+        "source": "sourceSystem"
+      }
+    }
+  },
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "customerName": "=concat(@(1,tmp.firstName),' ',@(1,tmp.lastName))",
+      "orderSummary": {
+        "orderCount": "=size(@(2,orders))",
+        "totalAmount": "=intSum(@(2,tempTotalAmount))",
+        "currency": "INR"
+      },
+      "orders": {
+        "*": {
+          "itemCount": "=intSum(@(1,itemQty))"
+        }
+      }
+    }
+  },
+  {
+    "operation": "remove",
+    "spec": {
+      "tmp": "",
+      "tempTotalAmount": "",
+      "orders": {
+        "*": {
+          "itemQty": ""
+        }
+      }
+    }
+  }
+]
