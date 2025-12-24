@@ -6,11 +6,11 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JsonataTransformRoute extends RouteBuilder {
+public class JsonataRoute extends RouteBuilder {
 
     private final JsonataTransformationService jsonataTransformationService;
 
-    public JsonataTransformRoute(JsonataTransformationService jsonataTransformationService) {
+    public JsonataRoute(JsonataTransformationService jsonataTransformationService) {
         this.jsonataTransformationService = jsonataTransformationService;
     }
 
