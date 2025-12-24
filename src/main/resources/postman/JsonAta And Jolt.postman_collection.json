@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "04c5800b-d168-47a4-89e6-e6f073f60cf0",
+		"name": "JsonAta And Jolt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48934561",
+		"_collection_link": "https://saurabhbeingsocial-8783811.postman.co/workspace/Saurabh's-Workspace~59a7953a-b3f7-401b-8318-ed3609c6bc27/collection/48934561-04c5800b-d168-47a4-89e6-e6f073f60cf0?action=share&source=collection_link&creator=48934561"
+	},
+	"item": [
+		{
+			"name": "TransformWithoutDynamicHeader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"id\": 101,\r\n    \"fullName\": \"Amit Sharma\",\r\n    \"contact\": {\r\n      \"email\": \"amit@gmail.com\",\r\n      \"phone\": \"9999999999\"\r\n    }\r\n  },\r\n  \"createdAt\": \"2025-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransformWithDynamicHeader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MAPPING-NAME",
+						"value": "compact-mapping.jsonata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"id\": 101,\r\n    \"fullName\": \"Amit Sharma\",\r\n    \"contact\": {\r\n      \"email\": \"amit@gmail.com\",\r\n      \"phone\": \"9999999999\"\r\n    }\r\n  },\r\n  \"createdAt\": \"2025-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jsonata Transformation Complex",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MAPPING-NAME",
+						"value": "complex-mapping.jsonata",
+						"type": "text"
+					},
+					{
+						"key": "X-TRANSFORMER",
+						"value": "jsonata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": \"EVT-789456\",\r\n  \"eventTime\": \"2025-08-15T10:45:30Z\",\r\n  \"customer\": {\r\n    \"id\": \"CUST-101\",\r\n    \"name\": {\r\n      \"first\": \"Amit\",\r\n      \"last\": \"Sharma\"\r\n    },\r\n    \"contacts\": [\r\n      {\r\n        \"type\": \"email\",\r\n        \"value\": \"amit@gmail.com\"\r\n      },\r\n      {\r\n        \"type\": \"phone\",\r\n        \"value\": \"9999999999\"\r\n      }\r\n    ],\r\n    \"address\": {\r\n      \"city\": \"Delhi\",\r\n      \"country\": \"India\"\r\n    },\r\n    \"vip\": true\r\n  },\r\n  \"orders\": [\r\n    {\r\n      \"orderId\": \"ORD-1\",\r\n      \"amount\": 900,\r\n      \"currency\": \"INR\",\r\n      \"items\": [\r\n        { \"sku\": \"SKU-1\", \"qty\": 2, \"price\": 300 },\r\n        { \"sku\": \"SKU-2\", \"qty\": 1, \"price\": 600 }\r\n      ]\r\n    },\r\n    {\r\n      \"orderId\": \"ORD-2\",\r\n      \"amount\": 800,\r\n      \"currency\": \"INR\",\r\n      \"items\": [\r\n        { \"sku\": \"SKU-3\", \"qty\": 1, \"price\": 800 }\r\n      ]\r\n    }\r\n  ],\r\n  \"metadata\": {\r\n    \"source\": \"MOBILE_APP\",\r\n    \"retryCount\": 2\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jolt Transformation Complex",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MAPPING-NAME",
+						"value": "complex-mapping.json",
+						"type": "text"
+					},
+					{
+						"key": "X-TRANSFORMER",
+						"value": "jolt",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": \"EVT-789456\",\r\n  \"eventTime\": \"2025-08-15T10:45:30Z\",\r\n  \"customer\": {\r\n    \"id\": \"CUST-101\",\r\n    \"name\": {\r\n      \"first\": \"Amit\",\r\n      \"last\": \"Sharma\"\r\n    },\r\n    \"contacts\": [\r\n      {\r\n        \"type\": \"email\",\r\n        \"value\": \"amit@gmail.com\"\r\n      },\r\n      {\r\n        \"type\": \"phone\",\r\n        \"value\": \"9999999999\"\r\n      }\r\n    ],\r\n    \"address\": {\r\n      \"city\": \"Delhi\",\r\n      \"country\": \"India\"\r\n    },\r\n    \"vip\": true\r\n  },\r\n  \"orders\": [\r\n    {\r\n      \"orderId\": \"ORD-1\",\r\n      \"amount\": 900,\r\n      \"currency\": \"INR\",\r\n      \"items\": [\r\n        { \"sku\": \"SKU-1\", \"qty\": 2, \"price\": 300 },\r\n        { \"sku\": \"SKU-2\", \"qty\": 1, \"price\": 600 }\r\n      ]\r\n    },\r\n    {\r\n      \"orderId\": \"ORD-2\",\r\n      \"amount\": 800,\r\n      \"currency\": \"INR\",\r\n      \"items\": [\r\n        { \"sku\": \"SKU-3\", \"qty\": 1, \"price\": 800 }\r\n      ]\r\n    }\r\n  ],\r\n  \"metadata\": {\r\n    \"source\": \"MOBILE_APP\",\r\n    \"retryCount\": 2\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JoltTransformWithDynamicHeader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MAPPING-NAME",
+						"value": "compact-mapping.json",
+						"type": "text"
+					},
+					{
+						"key": "X-TRANSFORMER",
+						"value": "jolt",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"id\": 101,\r\n    \"fullName\": \"Amit Sharma\",\r\n    \"contact\": {\r\n      \"email\": \"amit@gmail.com\",\r\n      \"phone\": \"9999999999\"\r\n    }\r\n  },\r\n  \"createdAt\": \"2025-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransformWithWrongHeader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-MAPPING-NAME",
+						"value": "wrong.jsonata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"id\": 101,\r\n    \"fullName\": \"Amit Sharma\",\r\n    \"contact\": {\r\n      \"email\": \"amit@gmail.com\",\r\n      \"phone\": \"9999999999\"\r\n    }\r\n  },\r\n  \"createdAt\": \"2025-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/api/transform",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"api",
+						"transform"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST_URL",
+			"value": ""
+		}
+	]
+}
